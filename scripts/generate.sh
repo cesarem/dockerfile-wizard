@@ -8,7 +8,7 @@ echo "RUN apk update && apk add openssl && mkdir /etc/nginx/certs"
 
 echo "ENV ENVIRONMENT=$C_ENVIRONMENT"
 
-#echo "CMD [\"/bin/sh\", \"-c\", \"envsubst '${ENVIRONMENT}' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
+echo "CMD [\"/bin/sh\", \"-c\", \"envsubst '${ENVIRONMENT}' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
 
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
