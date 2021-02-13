@@ -1,8 +1,14 @@
 #!/bin/bash
 
-echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
+echo "FROM nginxdemos/hello:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
-echo "RUN apt-get update"
+echo "RUN apk update \
+    && apk add openssl \
+    && mkdir /etc/nginx/certs"
+
+echo "ENV ENVIRONMENT=$(awk -F'_' '{print tolower($2)}' <<< $ENVIRONMENT)"
+
+echo "CMD [\"/bin/sh\", \"-c\", \"envsubst '${ENVIRONMENT}' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
 
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
