@@ -4,9 +4,7 @@
 
 echo "FROM nginxdemos/hello:plain-text"
 
-echo "RUN apk update \
-    && apk add openssl \
-    && mkdir /etc/nginx/certs"
+#echo "RUN apk update && apk add openssl && mkdir /etc/nginx/certs"
 
 #echo "ENV ENVIRONMENT=$(awk -F'_' '{print tolower($2)}' <<< $ENVIRONMENT)"
 
