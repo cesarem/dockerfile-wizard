@@ -15,8 +15,6 @@ image_config: &image_config
 
   LINUX_VERSION: plain-text
 
-  ENVIRONMENT: dev
-
   # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
 
   # NODE_VERSION_NUM: # pick a version from https://nodejs.org/dist
@@ -39,6 +37,7 @@ jobs:
     machine: true
     environment:
       <<: *image_config
+      ENVIRONMENT: dev
 
     steps:
       - checkout
