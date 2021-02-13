@@ -37,12 +37,14 @@ jobs:
     machine: true
     environment:
       <<: *image_config
-      ENVIRONMENT: dev
+      C_ENVIRONMENT: dev
 
     steps:
       - checkout
 
-      - run: bash scripts/generate.sh > Dockerfile
+      - run: |
+          echo $C_ENVIRONMENT
+          bash scripts/generate.sh > Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 

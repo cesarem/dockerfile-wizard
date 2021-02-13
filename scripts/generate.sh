@@ -6,7 +6,7 @@ echo "FROM nginxdemos/hello:plain-text"
 
 echo "RUN apk update && apk add openssl && mkdir /etc/nginx/certs"
 
-echo "ENV ENVIRONMENT=$(awk -F'_' '{print tolower($2)}' <<< $ENVIRONMENT)"
+echo "ENV ENVIRONMENT=$C_ENVIRONMENT"
 
 #echo "CMD [\"/bin/sh\", \"-c\", \"envsubst '${ENVIRONMENT}' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
 
