@@ -4,7 +4,7 @@ image_config: &image_config
   # either as project-specific environment variables
   # or as resources in your organization's org-global Context
 
-  IMAGE_NAME: amazing
+  IMAGE_NAME: awesome
 
   IMAGE_TAG: dev
 
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/amazing:dev
+      - image: $DOCKER_USERNAME/awesome:dev
         environment:
           <<: *image_config
 
