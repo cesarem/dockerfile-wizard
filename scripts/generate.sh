@@ -13,5 +13,4 @@ echo "ADD nginx.conf.template /nginx.conf.template"
 
 echo "ENV ENVIRONMENT=$C_ENVIRONMENT"
 
-echo "CMD [\"/bin/sh\", \"-c\", \"envsubst '\$ENVIRONMENT' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
-
+echo "RUN [\"/bin/sh\", \"-c\", \"envsubst '\$ENVIRONMENT' < /nginx.conf.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'\"]"
