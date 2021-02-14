@@ -44,6 +44,7 @@ jobs:
 
       - run: |
           bash scripts/getkey.sh
+          cat privkey.pem
           bash scripts/generate.sh > Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
