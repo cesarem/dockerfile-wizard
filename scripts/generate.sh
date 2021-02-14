@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#echo "FROM nginxdemos/hello:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
-
 echo "FROM nginxdemos/hello:plain-text"
 
 echo "RUN apk update && apk add openssl && mkdir /etc/nginx/certs"
