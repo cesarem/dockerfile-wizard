@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: awesome
 
-  IMAGE_TAG: dev
+  IMAGE_TAG: stage
 
 version: 2
 jobs:
