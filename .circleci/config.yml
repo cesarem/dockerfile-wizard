@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: awesome
 
-  IMAGE_TAG: stage
+  IMAGE_TAG: dev
 
 version: 2
 jobs:
@@ -14,7 +14,7 @@ jobs:
     machine: true
     environment:
       <<: *image_config
-      C_ENVIRONMENT: stage
+      C_ENVIRONMENT: dev
 
     steps:
       - checkout
